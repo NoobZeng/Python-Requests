@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+ 
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+    font-size: 16pt;
+    color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+ 
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+ 
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+ 
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+ 
+a.popup_link:hover {
+    color: red;
+}
+ 
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+ 
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+ 
+ 
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+ 
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+ 
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+ 
+ 
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+ 
+ 
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+ 
+ 
+function html_escape(s) {
+    s = s.replace(/&/g,'&');
+    s = s.replace(/</g,'<');
+    s = s.replace(/>/g,'>');
+    return s;
+}
+ 
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+ 
+<div class='heading'>
+<h1>Test Report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2019-01-06 22:48:42</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:05.119599</p>
+<p class='attribute'><strong>Status:</strong> Pass 12</p>
+
+<p class='description'>smoke test</p>
+</div>
+ 
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>first_unittest.ZantaoTestFirst</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',3)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_1___noob____noobzeng321__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+ 
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: b'[2019-01-06 22:48:42,330] - logger.py] - INFO: \xe7\x99\xbb\xe5\xbd\x95\xe6\xb5\x8b\xe8\xaf\x95\xe5\xbc\x80\xe5\xa7\x8b\n[2019-01-06 22:48:42,464] - logger.py] - INFO: \xe6\x88\x90\xe5\x8a\x9f\xe7\x99\xbb\xe5\xbd\x95!!!\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_a_2___admin____noobzeng321__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+ 
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: b'[2019-01-06 22:48:42,464] - logger.py] - INFO: \xe7\x99\xbb\xe5\xbd\x95\xe6\xb5\x8b\xe8\xaf\x95\xe5\xbc\x80\xe5\xa7\x8b\n[2019-01-06 22:48:42,580] - logger.py] - INFO: \xe6\x88\x90\xe5\x8a\x9f\xe7\x99\xbb\xe5\xbd\x95!!!\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_b</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+ 
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: b'[2019-01-06 22:48:42,580] - logger.py] - INFO: \xe8\x8e\xb7\xe5\x8f\x96\xe6\x9c\x80\xe6\x96\xb0\xe7\x9a\x84\xe5\x8a\xa8\xe6\x80\x81\xe6\xb6\x88\xe6\x81\xaf\n[2019-01-06 22:48:42,680] - logger.py] - INFO: \xe6\x88\x90\xe5\x8a\x9f\xe7\x99\xbb\xe5\xbd\x95!!!\n[2019-01-06 22:48:43,030] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:48, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,036] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:48, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,040] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:48, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,040] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:41, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,044] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:41, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,048] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:41, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,048] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:38, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,052] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:38, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,054] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:38, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,058] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:37, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,058] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:37, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,062] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:37, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,062] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:36, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,066] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:36, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,070] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:36, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,070] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:33, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,074] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:33, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,074] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:33, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,080] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:32, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,080] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:32, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,080] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:32, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,080] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:31, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,080] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:30, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,093] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:30, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,093] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:27, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,099] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:27, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,099] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:27, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,104] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:25, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,104] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:25, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,104] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:25, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,110] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:18, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,110] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:18, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,110] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:18, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,110] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:17, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,120] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:17, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,120] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:17, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,120] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:15, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,120] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:15, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,130] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:15, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,130] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,130] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,130] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,141] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,141] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,141] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,141] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,151] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,151] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,151] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,151] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 22:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,160] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,160] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,160] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,160] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,170] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,170] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,170] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,180] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,180] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,184] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,184] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:56, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,184] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,193] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,193] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,193] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,199] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,199] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,199] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,199] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,199] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,210] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,213] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:50, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,213] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,213] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,220] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,220] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,220] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,220] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,230] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,230] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,230] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,230] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,240] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:47, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,240] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,240] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,240] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,250] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,250] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,250] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,250] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,260] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,260] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,260] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,260] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:15, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,270] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,274] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,274] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,274] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,280] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,284] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,284] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,284] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,291] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,293] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,293] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:08, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,293] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,299] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,299] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,299] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,299] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,311] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,311] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,311] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,311] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,321] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,321] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 21:01, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,321] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,321] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,330] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,330] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,330] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,330] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,340] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,340] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,340] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,340] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,350] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 20:55, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,350] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,350] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,350] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,350] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,360] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,360] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,360] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,360] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,371] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:05, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,371] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:04, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,371] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:04, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,371] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,380] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,380] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,380] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,380] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,390] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,393] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,393] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,393] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,399] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,399] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:03, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,399] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:00, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,399] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:00, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,410] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 18:00, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,410] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:59, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,410] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:59, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,410] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:59, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,420] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test006\xe3\x80\x82\n[2019-01-06 22:48:43,420] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test007\xe3\x80\x82\n[2019-01-06 22:48:43,420] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test004\xe3\x80\x82\n[2019-01-06 22:48:43,420] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test005\xe3\x80\x82\n[2019-01-06 22:48:43,431] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test002\xe3\x80\x82\n[2019-01-06 22:48:43,431] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test003\xe3\x80\x82\n[2019-01-06 22:48:43,435] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,435] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe5\x88\x9b\xe5\xbb\xba \xe7\x94\xa8\xe4\xbe\x8b test001\xe3\x80\x82\n[2019-01-06 22:48:43,439] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,439] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,445] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 17:55, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,445] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 16:01, noob \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,450] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 16:01, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n[2019-01-06 22:48:43,450] - logger.py] - INFO: 1\xe6\x9c\x8806\xe6\x97\xa5 16:01, admin \xe7\x99\xbb\xe5\xbd\x95\xe7\xb3\xbb\xe7\xbb\x9f \xe3\x80\x82\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>second_unittest.ZentaoTestSecond</td>
+    <td>9</td>
+    <td>9</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',9)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_1___feature____test001__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+ 
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: b'[2019-01-06 22:48:44,040] - logger.py] - INFO: \n174\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:44,050] - logger.py] - INFO: \xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe5\x88\x9b\xe5\xbb\xba\xe6\x88\x90\xe5\x8a\x9f\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_2___performance____test002__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+ 
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: b'[2019-01-06 22:48:44,510] - logger.py] - INFO: \n175\n1test002\n\xe6\x80\xa7\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:44,510] - logger.py] - INFO: \xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe5\x88\x9b\xe5\xbb\xba\xe6\x88\x90\xe5\x8a\x9f\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_3___config____test003__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        pass</a>
+ 
+    <div id='div_pt2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.3: b'[2019-01-06 22:48:44,950] - logger.py] - INFO: \n176\n1test003\n\xe9\x85\x8d\xe7\xbd\xae\xe7\x9b\xb8\xe5\x85\xb3\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:44,950] - logger.py] - INFO: \xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe5\x88\x9b\xe5\xbb\xba\xe6\x88\x90\xe5\x8a\x9f\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_4___install____test004__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        pass</a>
+ 
+    <div id='div_pt2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.4: b'[2019-01-06 22:48:45,390] - logger.py] - INFO: \n177\n1test004\n\xe5\xae\x89\xe8\xa3\x85\xe9\x83\xa8\xe7\xbd\xb2\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:45,390] - logger.py] - INFO: \xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe5\x88\x9b\xe5\xbb\xba\xe6\x88\x90\xe5\x8a\x9f\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_5___security____test005__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        pass</a>
+ 
+    <div id='div_pt2.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.5: b'[2019-01-06 22:48:45,823] - logger.py] - INFO: \n178\n1test005\n\xe5\xae\x89\xe5\x85\xa8\xe7\x9b\xb8\xe5\x85\xb3\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:45,830] - logger.py] - INFO: \xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe5\x88\x9b\xe5\xbb\xba\xe6\x88\x90\xe5\x8a\x9f\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_6___interface____test006__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.6')" >
+        pass</a>
+ 
+    <div id='div_pt2.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.6: b'[2019-01-06 22:48:46,309] - logger.py] - INFO: \n179\n1test006\n\xe6\x8e\xa5\xe5\x8f\xa3\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:46,309] - logger.py] - INFO: \xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe5\x88\x9b\xe5\xbb\xba\xe6\x88\x90\xe5\x8a\x9f\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_c_7___other____test007__: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.7')" >
+        pass</a>
+ 
+    <div id='div_pt2.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.7: b'[2019-01-06 22:48:46,744] - logger.py] - INFO: \n180\n1test007\n\xe5\x85\xb6\xe4\xbb\x96\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:46,750] - logger.py] - INFO: \xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe5\x88\x9b\xe5\xbb\xba\xe6\x88\x90\xe5\x8a\x9f\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_1___include___1_: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.8')" >
+        pass</a>
+ 
+    <div id='div_pt2.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.8: b'[2019-01-06 22:48:47,109] - logger.py] - INFO: \n174\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:48000\n \n[2019-01-06 22:48:47,109] - logger.py] - INFO: \n167\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 22:08000\n \n[2019-01-06 22:48:47,122] - logger.py] - INFO: \n160\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 21:56000\n \n[2019-01-06 22:48:47,122] - logger.py] - INFO: \n153\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 21:50000\n \n[2019-01-06 22:48:47,122] - logger.py] - INFO: \n146\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 21:47000\n \n[2019-01-06 22:48:47,122] - logger.py] - INFO: \n139\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 21:15000\n \n[2019-01-06 22:48:47,130] - logger.py] - INFO: \n132\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 21:08000\n \n[2019-01-06 22:48:47,130] - logger.py] - INFO: \n125\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 21:01000\n \n[2019-01-06 22:48:47,130] - logger.py] - INFO: \n118\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 20:55000\n \n[2019-01-06 22:48:47,130] - logger.py] - INFO: \n111\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 18:05000\n \n[2019-01-06 22:48:47,140] - logger.py] - INFO: \n104\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 18:03000\n \n[2019-01-06 22:48:47,140] - logger.py] - INFO: \n097\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-06 17:55000\n \n[2019-01-06 22:48:47,140] - logger.py] - INFO: \n090\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-05 19:38000\n \n[2019-01-06 22:48:47,140] - logger.py] - INFO: \n083\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-05 19:37000\n \n[2019-01-06 22:48:47,150] - logger.py] - INFO: \n076\n1test001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin01-05 19:31000\n \n[2019-01-06 22:48:47,150] - logger.py] - INFO: \n063\n3001\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8noob01-05 17:34000\n \n[2019-01-06 22:48:47,154] - logger.py] - INFO: \n001\n4test01_\xe4\xb8\x8a\xe4\xbc\xa0\xe5\x9b\xbe\xe7\x89\x87\n\xe5\x8a\x9f\xe8\x83\xbd\xe6\xb5\x8b\xe8\xaf\x95\xe6\xad\xa3\xe5\xb8\xb8admin12-26 22:22admin12/26 22:22\xe5\xa4\xb1\xe8\xb4\xa51\n1\n3\n \n[2019-01-06 22:48:47,154] - logger.py] - INFO: \xe6\x88\x90\xe5\x8a\x9f\xe6\x90\x9c\xe7\xb4\xa2\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='pt2.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_d_2_______1_: Built-in mutable sequence.</div></td>
+    <td colspan='5' align='center'>
+ 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.9')" >
+        pass</a>
+ 
+    <div id='div_pt2.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.9: b'[2019-01-06 22:48:47,434] - logger.py] - ERROR: \xe8\xaf\xa5\xe6\xb5\x8b\xe8\xaf\x95\xe7\x94\xa8\xe4\xbe\x8b\xe4\xb8\x8d\xe5\xad\x98\xe5\x9c\xa8\xef\xbc\x9a\n[2019-01-06 22:48:47,434] - logger.py] - INFO: \xe6\x88\x90\xe5\x8a\x9f\xe6\x90\x9c\xe7\xb4\xa2\n'
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+ 
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>12</td>
+    <td>12</td>
+    <td>0</td>
+    <td>0</td>
+    <td> </td>
+</tr>
+</table>
+
+<div id='ending'> </div>
+ 
+</body>
+</html>
